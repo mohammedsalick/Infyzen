@@ -4,7 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Infyzen - Software & IT Solutions</title>
+    <link rel="icon" type="image/png" href="./Infyzen-Wht.png">
     <script src="https://cdn.tailwindcss.com"></script>
+    
     <script>
         tailwind.config = {
             theme: {
@@ -116,11 +118,85 @@
         .mobile-menu.active {
             transform: translateX(0);
         }
+
+        /* Carousel Styles */
+        .carousel-container {
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .carousel-track {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+        
+        .carousel-slide {
+            flex-shrink: 0;
+            padding: 0 1rem;
+            width: 100%;
+        }
+        
+        .carousel-nav {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+        
+        .carousel-btn {
+            background: rgba(37, 99, 235, 0.1);
+            border: 1px solid rgba(37, 99, 235, 0.2);
+            color: #2563eb;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .carousel-btn:hover {
+            background: #2563eb;
+            color: white;
+            transform: translateY(-2px);
+        }
+        
+        .carousel-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+        }
+        
+        .carousel-dots {
+            display: flex;
+            gap: 0.5rem;
+            justify-content: center;
+        }
+        
+        .carousel-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(37, 99, 235, 0.3);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .carousel-dot.active {
+            background: #2563eb;
+            transform: scale(1.2);
+        }
         
         @media (max-width: 768px) {
             .hero-title {
                 font-size: 3rem;
                 line-height: 1.1;
+            }
+            .carousel-slide {
+                padding: 0 0.5rem;
             }
         }
         
@@ -129,15 +205,31 @@
                 font-size: 2.5rem;
             }
         }
+
+        /* Responsive carousel widths */
+        @media (min-width: 768px) {
+            .carousel-slide {
+                width: 50%;
+            }
+            .carousel-track {
+                width: 300%; /* 6 slides / 2 per view * 100% */
+            }
+        }
+        @media (min-width: 1024px) {
+            .carousel-slide {
+                width: 33.3333%;
+            }
+            .carousel-track {
+                width: 200%; /* 6 slides / 3 per view * 100% */
+            }
+        }
     </style>
 </head>
 <body class="font-sans text-slate-800 overflow-x-hidden">
-    <!-- Header -->
     <header class="fixed top-0 w-full bg-white/95 backdrop-blur-sm z-50 transition-all duration-300 border-b border-blue-100">
         <nav class="flex justify-between items-center max-w-6xl mx-auto p-4 md:p-6">
             <div class="text-2xl md:text-3xl font-bold gradient-text">Infyzen</div>
             
-            <!-- Desktop Navigation -->
             <ul class="hidden md:flex space-x-6 lg:space-x-8">
                 <li><a href="#home" class="nav-link relative text-slate-800 font-medium hover:text-primary transition-colors duration-300">Home</a></li>
                 <li><a href="#about" class="nav-link relative text-slate-800 font-medium hover:text-primary transition-colors duration-300">About</a></li>
@@ -146,7 +238,6 @@
                 <li><a href="#contact" class="nav-link relative text-slate-800 font-medium hover:text-primary transition-colors duration-300">Contact</a></li>
             </ul>
             
-            <!-- Mobile Menu Button -->
             <button class="md:hidden text-slate-800 hover:text-primary transition-colors" id="mobile-menu-btn">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
@@ -154,7 +245,6 @@
             </button>
         </nav>
         
-        <!-- Mobile Menu -->
         <div class="mobile-menu fixed top-0 left-0 w-full h-screen bg-white z-40 md:hidden" id="mobile-menu">
             <div class="flex justify-between items-center p-4 border-b">
                 <div class="text-2xl font-bold gradient-text">Infyzen</div>
@@ -174,7 +264,6 @@
         </div>
     </header>
 
-    <!-- Hero Section -->
     <section id="home" class="min-h-screen flex items-center bg-gradient-to-br from-slate-50 to-slate-200 relative overflow-hidden hero-bg pt-20">
         <div class="max-w-6xl mx-auto p-4 md:p-6 grid md:grid-cols-2 gap-8 md:gap-16 items-center relative z-10">
             <div class="animate-slide-in-left text-center md:text-left">
@@ -215,7 +304,6 @@
         </div>
     </section>
 
-    <!-- About Section -->
     <section id="about" class="py-16 md:py-20 bg-slate-50">
         <div class="max-w-6xl mx-auto p-4 md:p-6">
             <h2 class="text-3xl md:text-4xl font-bold text-center mb-4 gradient-text">About Us</h2>
@@ -247,10 +335,9 @@
         </div>
     </section>
 
-    <!-- Services Section -->
     <section id="services" class="py-16 md:py-20">
         <div class="max-w-6xl mx-auto p-4 md:p-6">
-            <h2 class="text-3xl md:text-4xl font-bold text-center mb-4 gradient-text">Our Services</h2>
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-4 gradient-text">Our Services  </h2>
             <p class="text-center text-slate-600 text-lg md:text-xl mb-8 md:mb-12 max-w-3xl mx-auto">Comprehensive IT solutions tailored to your business needs</p>
             <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
                 <div class="service-card relative bg-white p-6 md:p-8 rounded-3xl text-center shadow-lg hover:shadow-2xl hover:-translate-y-4 transition-all duration-300 border border-blue-100 overflow-hidden">
@@ -277,34 +364,34 @@
         </div>
     </section>
 
-    <!-- Projects Section -->
     <section id="projects" class="py-16 md:py-20 bg-slate-50">
         <div class="max-w-6xl mx-auto p-4 md:p-6">
-            <h2 class="text-3xl md:text-4xl font-bold text-center mb-4 gradient-text">Our Success Story</h2>
-            <p class="text-center text-slate-600 text-lg md:text-xl mb-8 md:mb-12 max-w-3xl mx-auto">Showcasing our flagship project that's making a difference</p>
-            <div class="w-full bg-white rounded-3xl shadow-xl p-6 md:p-12">
-                <div class="text-center max-w-4xl mx-auto">
-                    <h3 class="text-2xl md:text-3xl font-bold mb-6 gradient-text">Speedzy App</h3>
-                    <div class="space-y-4 md:space-y-6 text-base md:text-lg text-slate-600 leading-relaxed mb-6 md:mb-8">
-                        <p><strong>Speedzy is now in Pernambut!</strong> Your favorite delivery app is now available on both Play Store and App Store. Order Food, Vegetables, Groceries, and even Parcels – delivered fast to your doorstep!</p>
-                        <p>Our flagship mobile application represents the pinnacle of our development expertise, serving the Pernambut community with exceptional delivery services. Speedzy showcases our ability to create scalable, user-friendly solutions that meet real market needs and provide genuine value to local residents.</p>
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-4 gradient-text">Our Portfolio</h2>
+            <p class="text-center text-slate-600 text-lg md:text-xl mb-8 md:mb-12 max-w-3xl mx-auto">Showcasing our diverse range of successful projects across different industries</p>
+            
+            <div class="carousel-container relative">
+                <div class="carousel-track" id="carousel-track">
                     </div>
-                    <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                        <a href="https://play.google.com/store/apps/details?id=com.mohammed_salick.Speedzy" target="_blank" 
-                           class="bg-slate-800 text-white px-6 md:px-8 py-3 rounded-xl font-semibold hover:bg-primary hover:-translate-y-1 transition-all duration-300 text-center">
-                            Play Store
-                        </a>
-                        <a href="https://apps.apple.com/in/app/speedzy/id6747835648" target="_blank" 
-                           class="bg-slate-800 text-white px-6 md:px-8 py-3 rounded-xl font-semibold hover:bg-primary hover:-translate-y-1 transition-all duration-300 text-center">
-                            App Store
-                        </a>
-                    </div>
+                
+                <div class="absolute inset-0 flex items-center justify-between px-4 sm:px-8">
+                    <button class="carousel-btn" id="prev-btn">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                        </svg>
+                    </button>
+                    <button class="carousel-btn" id="next-btn">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                        </svg>
+                    </button>
                 </div>
             </div>
+
+            <div class="carousel-dots-container flex justify-center gap-2 mt-8" id="carousel-dots">
+                </div>
         </div>
     </section>
 
-    <!-- Contact Section -->
     <section id="contact" class="py-16 md:py-20">
         <div class="max-w-6xl mx-auto p-4 md:p-6">
             <h2 class="text-3xl md:text-4xl font-bold text-center mb-4 gradient-text">Get In Touch</h2>
@@ -358,7 +445,6 @@
         </div>
     </section>
 
-    <!-- Footer -->
     <footer class="bg-slate-900 text-white py-8 md:py-12 text-center">
         <div class="max-w-6xl mx-auto p-4 md:p-6">
             <div class="flex flex-wrap justify-center space-x-4 md:space-x-8 mb-6 md:mb-8">
@@ -368,7 +454,7 @@
                 <a href="#projects" class="hover:text-accent transition-colors duration-300 mb-2">Projects</a>
                 <a href="#contact" class="hover:text-accent transition-colors duration-300 mb-2">Contact</a>
             </div>
-            <p class="mb-2 md:mb-4 text-sm md:text-base">&copy; 2025 Infyzen. All rights reserved.</p>
+            <p class="mb-2 md:mb-4 text-sm md:text-base">© 2025 Infyzen. All rights reserved.</p>
             <p class="text-sm md:text-base">Empowering businesses through innovative technology solutions</p>
         </div>
     </footer>
@@ -404,6 +490,189 @@
                 mobileMenu.classList.remove('active');
                 document.body.style.overflow = '';
             }
+        });
+
+        // Carousel functionality
+        const projectsData = [
+            {
+                title: 'Speedzy App',
+                initial: 'S',
+                description: 'A comprehensive food, grocery, and parcel delivery mobile application for the Pernambut community. We developed the platform from the ground up, focusing on a user-friendly interface and a dynamic backend for managing all logistics.',
+                links: [
+                    { text: 'Play Store', url: 'https://play.google.com/store/apps/details?id=com.mohammed_salick.Speedzy' },
+                    { text: 'App Store', url: 'https://apps.apple.com/in/app/speedzy/id6747835648' }
+                ]
+            },
+            {
+                title: 'OSSVVEL TILES',
+                initial: 'T',
+                description: 'A modern e-commerce and showcase website for a premium tiles and building materials showroom in Kanchipuram. We designed a user-friendly product catalog and integrated a system for online inquiries.',
+                links: [
+                    { text: 'Visit Website', url: 'https://ossvveltiles.com/' }
+                ]
+            },
+            {
+                title: 'AEurope.in',
+                initial: 'L',
+                description: 'An elegant e-commerce platform for handcrafted leather products including belts, shoes, and bags. This project demonstrates our ability to create niche e-commerce sites that are both beautiful and highly functional.',
+                links: [
+                    { text: 'Visit Website', url: 'https://aeurope.in/' }
+                ]
+            },
+            {
+                title: 'Wholesale Abaya & Hijabs',
+                initial: 'H',
+                description: 'A specialized e-commerce website for a wholesale modest fashion business. The platform was designed to cater to B2B clients with a streamlined bulk ordering system and a clean, professional design.',
+                links: [
+                    { text: 'Visit Website', url: 'https://wholesaleabayahijabs.in/' }
+                ]
+            },
+            {
+                title: 'IronZone',
+                initial: 'I',
+                description: 'A dual-platform project (website and mobile app) for a professional clothes ironing service in Pernambut. We developed a user-friendly service platform that allows customers to schedule pickups, track orders, and manage payments.',
+                links: [
+                    { text: 'Visit Website', url: 'https://www.ironzone.in/' },
+                    { text: 'Play Store', url: 'https://play.google.com/store/apps/details?id=com.ironjournallabs.ironjournal' }
+                ]
+            },
+            {
+                title: 'Trend2Media',
+                initial: 'N',
+                description: 'An innovative AI-powered platform that uses the News API to automatically generate engaging images and videos from the latest news headlines. This project is currently in development.',
+                links: [
+                    { text: 'Preview Project', url: 'https://trend2media.vercel.app/' }
+                ],
+                status: 'Under Development'
+            }
+        ];
+
+        let currentSlide = 0;
+        let slidesPerView = 1;
+        const totalSlides = projectsData.length;
+        const track = document.getElementById('carousel-track');
+        const prevBtn = document.getElementById('prev-btn');
+        const nextBtn = document.getElementById('next-btn');
+        const dotsContainer = document.getElementById('carousel-dots');
+
+        function updateSlidesPerView() {
+            const viewportWidth = window.innerWidth;
+            if (viewportWidth >= 1024) {
+                slidesPerView = 3;
+            } else if (viewportWidth >= 768) {
+                slidesPerView = 2;
+            } else {
+                slidesPerView = 1;
+            }
+
+            const trackWidth = (totalSlides / slidesPerView) * 100;
+            track.style.width = `${trackWidth}%`;
+            
+            // Adjust currentSlide to prevent empty space
+            if (currentSlide > totalSlides - slidesPerView) {
+                currentSlide = Math.max(0, totalSlides - slidesPerView);
+            }
+            updateCarousel();
+        }
+
+        function createProjectCards() {
+            track.innerHTML = '';
+            dotsContainer.innerHTML = '';
+            projectsData.forEach((project, index) => {
+                const slide = document.createElement('div');
+                slide.className = 'carousel-slide';
+                const slideWidth = 100 / (totalSlides / slidesPerView);
+                slide.style.width = `${slideWidth}%`;
+                
+                const linksHtml = project.links.map(link => `
+                    <a href="${link.url}" target="_blank" class="bg-slate-800 text-white px-4 py-2 rounded-xl text-sm font-semibold hover:bg-primary hover:-translate-y-1 transition-all duration-300 text-center">${link.text}</a>
+                `).join('');
+
+                slide.innerHTML = `
+                    <div class="bg-white rounded-3xl shadow-xl p-6 md:p-8 h-full flex flex-col justify-between">
+                        <div>
+                            <div class="w-16 h-16 md:w-20 md:h-20 gradient-bg rounded-3xl mx-auto mb-4 md:mb-6 flex items-center justify-center text-white text-2xl md:text-3xl font-bold">${project.initial}</div>
+                            <h3 class="text-xl md:text-2xl font-bold mb-3 gradient-text">${project.title}</h3>
+                            <p class="text-sm md:text-base text-slate-600 leading-relaxed mb-4">${project.description}</p>
+                            ${project.status ? `<div class="bg-slate-100 text-slate-600 px-3 py-1 rounded-full text-xs font-medium inline-block">${project.status}</div>` : ''}
+                        </div>
+                        <div class="mt-6 flex flex-wrap gap-4 justify-center">
+                            ${linksHtml}
+                        </div>
+                    </div>
+                `;
+                track.appendChild(slide);
+
+                const dot = document.createElement('div');
+                dot.className = `carousel-dot`;
+                dot.dataset.slide = index;
+                dot.addEventListener('click', () => {
+                    currentSlide = index;
+                    updateCarousel();
+                });
+                dotsContainer.appendChild(dot);
+            });
+        }
+
+        function updateCarousel() {
+            const offset = -currentSlide * (100 / slidesPerView);
+            track.style.transform = `translateX(${offset}%)`;
+            
+            const dots = dotsContainer.querySelectorAll('.carousel-dot');
+            dots.forEach((dot, index) => {
+                dot.classList.toggle('active', index === currentSlide);
+            });
+            
+            prevBtn.disabled = currentSlide === 0;
+            nextBtn.disabled = currentSlide >= totalSlides - slidesPerView;
+        }
+
+        prevBtn.addEventListener('click', () => {
+            if (currentSlide > 0) {
+                currentSlide--;
+                updateCarousel();
+            }
+        });
+
+        nextBtn.addEventListener('click', () => {
+            if (currentSlide < totalSlides - slidesPerView) {
+                currentSlide++;
+                updateCarousel();
+            }
+        });
+
+        // Touch/swipe support
+        let startX = 0;
+        let endX = 0;
+        const carouselContainer = document.querySelector('.carousel-container');
+
+        carouselContainer.addEventListener('touchstart', (e) => {
+            startX = e.touches[0].clientX;
+        });
+
+        carouselContainer.addEventListener('touchmove', (e) => {
+            endX = e.touches[0].clientX;
+        });
+
+        carouselContainer.addEventListener('touchend', () => {
+            const threshold = 50;
+            const diff = startX - endX;
+
+            if (Math.abs(diff) > threshold) {
+                if (diff > 0 && currentSlide < totalSlides - slidesPerView) {
+                    currentSlide++;
+                } else if (diff < 0 && currentSlide > 0) {
+                    currentSlide--;
+                }
+            }
+            updateCarousel();
+        });
+
+        // Initialize carousel and handle resize
+        createProjectCards();
+        updateSlidesPerView();
+        window.addEventListener('resize', () => {
+            updateSlidesPerView();
         });
 
         // Smooth scrolling for navigation links
@@ -455,48 +724,6 @@
             card.style.transform = 'translateY(30px)';
             card.style.transition = 'all 0.6s ease';
             observer.observe(card);
-        });
-
-        // Add touch support for mobile devices
-        let touchStartY = 0;
-        let touchEndY = 0;
-
-        document.addEventListener('touchstart', e => {
-            touchStartY = e.changedTouches[0].screenY;
-        });
-
-        document.addEventListener('touchend', e => {
-            touchEndY = e.changedTouches[0].screenY;
-            handleSwipe();
-        });
-
-        function handleSwipe() {
-            if (touchEndY < touchStartY - 50) {
-                // Swipe up - could add functionality here
-            }
-            if (touchEndY > touchStartY + 50) {
-                // Swipe down - could add functionality here
-            }
-        }
-
-        // Prevent zoom on double tap for better mobile experience
-        let lastTouchEnd = 0;
-        document.addEventListener('touchend', function (event) {
-            const now = (new Date()).getTime();
-            if (now - lastTouchEnd <= 300) {
-                event.preventDefault();
-            }
-            lastTouchEnd = now;
-        }, false);
-
-        // Add loading animation for images
-        document.addEventListener('DOMContentLoaded', function() {
-            const images = document.querySelectorAll('img');
-            images.forEach(img => {
-                img.addEventListener('load', function() {
-                    this.classList.add('loaded');
-                });
-            });
         });
 
         // Performance optimization: Lazy load animations
