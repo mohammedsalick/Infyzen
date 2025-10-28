@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,11 +8,49 @@
     <meta name="description" content="Infyzen offers top-notch software and IT solutions to help your business grow.">
     <meta name="keywords" content="Infyzen, Software, IT Solutions, Web Development, App Development">
     <link rel="icon" type="image/png" href="Infyzen-Wht.png">
-<link rel="shortcut icon" href="Infyzen-Wht.png">
+    <link rel="shortcut icon" href="Infyzen-Wht.png">
     <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml">
     <script src="https://cdn.tailwindcss.com"></script>
 
-    
+    <!-- PROFESSIONAL INVISIBLE DEVELOPER ATTRIBUTION (WebSite/Person/Organization Schema) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebSite",
+          "url": "https://ironzone.in/",
+          "name": "IRONZONE - Steam Ironing & Laundry Service in Pernambut",
+          "creator": { "@id": "#MohammedSalickMA" },
+          "publisher": { "@id": "#InfyzenSoftware" }
+        },
+        {
+          "@type": "Person",
+          "@id": "#MohammedSalickMA",
+          "name": "Mohammed Salick M A",
+          "url": "https://salick.vercel.app", 
+          "email": "mhmmdsalick@gmail.com",
+          "jobTitle": "Developer",
+          "sameAs": [
+            "https://salick.vercel.app"
+          ]
+        },
+        {
+          "@type": "Organization",
+          "@id": "#InfyzenSoftware",
+          "name": "Infyzen Software & IT Solutions",
+          "url": "https://infyzen.in",
+          "email": "infyzen.in@gmail.com",
+          "contactPoint": {
+            "@type": "ContactPoint",
+            "telephone": "+91-6363785019",
+            "contactType": "general"
+          }
+        }
+      ]
+    }
+    </script>
+
     <script>
         tailwind.config = {
             theme: {
@@ -124,84 +163,21 @@
             transform: translateX(0);
         }
 
-        /* Carousel Styles */
-        .carousel-container {
-            overflow: hidden;
-            position: relative;
-        }
-        
-        .carousel-track {
-            display: flex;
-            transition: transform 0.5s ease-in-out;
-        }
-        
-        .carousel-slide {
-            flex-shrink: 0;
-            padding: 0 1rem;
-            width: 100%;
-        }
-        
-        .carousel-nav {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 1rem;
-            margin-top: 2rem;
-        }
-        
-        .carousel-btn {
-            background: rgba(37, 99, 235, 0.1);
-            border: 1px solid rgba(37, 99, 235, 0.2);
-            color: #2563eb;
-            width: 48px;
-            height: 48px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
+        .project-card {
             transition: all 0.3s ease;
+            border: 1px solid rgba(37, 99, 235, 0.1);
         }
         
-        .carousel-btn:hover {
-            background: #2563eb;
-            color: white;
-            transform: translateY(-2px);
-        }
-        
-        .carousel-btn:disabled {
-            opacity: 0.5;
-            cursor: not-allowed;
-            transform: none;
-        }
-        
-        .carousel-dots {
-            display: flex;
-            gap: 0.5rem;
-            justify-content: center;
-        }
-        
-        .carousel-dot {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background: rgba(37, 99, 235, 0.3);
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-        
-        .carousel-dot.active {
-            background: #2563eb;
-            transform: scale(1.2);
+        .project-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(37, 99, 235, 0.15);
+            border-color: rgba(37, 99, 235, 0.3);
         }
         
         @media (max-width: 768px) {
             .hero-title {
                 font-size: 3rem;
                 line-height: 1.1;
-            }
-            .carousel-slide {
-                padding: 0 0.5rem;
             }
         }
         
@@ -210,26 +186,9 @@
                 font-size: 2.5rem;
             }
         }
-
-        /* Responsive carousel widths */
-        @media (min-width: 768px) {
-            .carousel-slide {
-                width: 50%;
-            }
-            .carousel-track {
-                width: 300%; /* 6 slides / 2 per view * 100% */
-            }
-        }
-        @media (min-width: 1024px) {
-            .carousel-slide {
-                width: 33.3333%;
-            }
-            .carousel-track {
-                width: 200%; /* 6 slides / 3 per view * 100% */
-            }
-        }
     </style>
 </head>
+
 <body class="font-sans text-slate-800 overflow-x-hidden">
     <header class="fixed top-0 w-full bg-white/95 backdrop-blur-sm z-50 transition-all duration-300 border-b border-blue-100">
         <nav class="flex justify-between items-center max-w-6xl mx-auto p-4 md:p-6">
@@ -342,7 +301,7 @@
 
     <section id="services" class="py-16 md:py-20">
         <div class="max-w-6xl mx-auto p-4 md:p-6">
-            <h2 class="text-3xl md:text-4xl font-bold text-center mb-4 gradient-text">Our Services  </h2>
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-4 gradient-text">Our Services</h2>
             <p class="text-center text-slate-600 text-lg md:text-xl mb-8 md:mb-12 max-w-3xl mx-auto">Comprehensive IT solutions tailored to your business needs</p>
             <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
                 <div class="service-card relative bg-white p-6 md:p-8 rounded-3xl text-center shadow-lg hover:shadow-2xl hover:-translate-y-4 transition-all duration-300 border border-blue-100 overflow-hidden">
@@ -374,26 +333,71 @@
             <h2 class="text-3xl md:text-4xl font-bold text-center mb-4 gradient-text">Our Portfolio</h2>
             <p class="text-center text-slate-600 text-lg md:text-xl mb-8 md:mb-12 max-w-3xl mx-auto">Showcasing our diverse range of successful projects across different industries</p>
             
-            <div class="carousel-container relative">
-                <div class="carousel-track" id="carousel-track">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+                <!-- Speedzy App -->
+                <div class="project-card bg-white rounded-3xl shadow-lg p-6 md:p-8 flex flex-col">
+                    <div class="w-16 h-16 md:w-20 md:h-20 gradient-bg rounded-3xl mx-auto mb-4 md:mb-6 flex items-center justify-center text-white text-2xl md:text-3xl font-bold">S</div>
+                    <h3 class="text-xl md:text-2xl font-bold mb-3 gradient-text text-center">Speedzy App</h3>
+                    <p class="text-sm md:text-base text-slate-600 leading-relaxed mb-4 flex-grow">A comprehensive food, grocery, and parcel delivery mobile application for the Pernambut community. We developed the platform from the ground up, focusing on a user-friendly interface and a dynamic backend for managing all logistics.</p>
+                    <div class="mt-4 flex flex-wrap gap-3 justify-center">
+                        <a href="https://play.google.com/store/apps/details?id=com.mohammed_salick.Speedzy" target="_blank" class="bg-slate-800 text-white px-4 py-2 rounded-xl text-sm font-semibold hover:bg-primary hover:-translate-y-1 transition-all duration-300">Play Store</a>
+                        <a href="https://apps.apple.com/in/app/speedzy/id6747835648" target="_blank" class="bg-slate-800 text-white px-4 py-2 rounded-xl text-sm font-semibold hover:bg-primary hover:-translate-y-1 transition-all duration-300">App Store</a>
                     </div>
+                </div>
                 
-                <div class="absolute inset-0 flex items-center justify-between px-4 sm:px-8">
-                    <button class="carousel-btn" id="prev-btn">
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
-                        </svg>
-                    </button>
-                    <button class="carousel-btn" id="next-btn">
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                        </svg>
-                    </button>
+                <!-- OSSVVEL TILES -->
+                <div class="project-card bg-white rounded-3xl shadow-lg p-6 md:p-8 flex flex-col">
+                    <div class="w-16 h-16 md:w-20 md:h-20 gradient-bg rounded-3xl mx-auto mb-4 md:mb-6 flex items-center justify-center text-white text-2xl md:text-3xl font-bold">T</div>
+                    <h3 class="text-xl md:text-2xl font-bold mb-3 gradient-text text-center">OSSVVEL TILES</h3>
+                    <p class="text-sm md:text-base text-slate-600 leading-relaxed mb-4 flex-grow">A modern e-commerce and showcase website for a premium tiles and building materials showroom in Kanchipuram. We designed a user-friendly product catalog and integrated a system for online inquiries.</p>
+                    <div class="mt-4 flex flex-wrap gap-3 justify-center">
+                        <a href="https://ossvveltiles.com/" target="_blank" class="bg-slate-800 text-white px-4 py-2 rounded-xl text-sm font-semibold hover:bg-primary hover:-translate-y-1 transition-all duration-300">Visit Website</a>
+                    </div>
+                </div>
+                
+                <!-- AEurope.in -->
+                <div class="project-card bg-white rounded-3xl shadow-lg p-6 md:p-8 flex flex-col">
+                    <div class="w-16 h-16 md:w-20 md:h-20 gradient-bg rounded-3xl mx-auto mb-4 md:mb-6 flex items-center justify-center text-white text-2xl md:text-3xl font-bold">L</div>
+                    <h3 class="text-xl md:text-2xl font-bold mb-3 gradient-text text-center">AEurope.in</h3>
+                    <p class="text-sm md:text-base text-slate-600 leading-relaxed mb-4 flex-grow">An elegant e-commerce platform for handcrafted leather products including belts, shoes, and bags. This project demonstrates our ability to create niche e-commerce sites that are both beautiful and highly functional.</p>
+                    <div class="mt-4 flex flex-wrap gap-3 justify-center">
+                        <a href="https://aeurope.in/" target="_blank" class="bg-slate-800 text-white px-4 py-2 rounded-xl text-sm font-semibold hover:bg-primary hover:-translate-y-1 transition-all duration-300">Visit Website</a>
+                    </div>
+                </div>
+                
+                <!-- Wholesale Abaya & Hijabs -->
+                <div class="project-card bg-white rounded-3xl shadow-lg p-6 md:p-8 flex flex-col">
+                    <div class="w-16 h-16 md:w-20 md:h-20 gradient-bg rounded-3xl mx-auto mb-4 md:mb-6 flex items-center justify-center text-white text-2xl md:text-3xl font-bold">H</div>
+                    <h3 class="text-xl md:text-2xl font-bold mb-3 gradient-text text-center">Wholesale Abaya & Hijabs</h3>
+                    <p class="text-sm md:text-base text-slate-600 leading-relaxed mb-4 flex-grow">A specialized e-commerce website for a wholesale modest fashion business. The platform was designed to cater to B2B clients with a streamlined bulk ordering system and a clean, professional design.</p>
+                    <div class="mt-4 flex flex-wrap gap-3 justify-center">
+                        <a href="https://wholesaleabayahijabs.in/" target="_blank" class="bg-slate-800 text-white px-4 py-2 rounded-xl text-sm font-semibold hover:bg-primary hover:-translate-y-1 transition-all duration-300">Visit Website</a>
+                    </div>
+                </div>
+                
+                <!-- IronZone -->
+                <div class="project-card bg-white rounded-3xl shadow-lg p-6 md:p-8 flex flex-col">
+                    <div class="w-16 h-16 md:w-20 md:h-20 gradient-bg rounded-3xl mx-auto mb-4 md:mb-6 flex items-center justify-center text-white text-2xl md:text-3xl font-bold">I</div>
+                    <h3 class="text-xl md:text-2xl font-bold mb-3 gradient-text text-center">IronZone</h3>
+                    <p class="text-sm md:text-base text-slate-600 leading-relaxed mb-4 flex-grow">A dual-platform project (website and mobile app) for a professional clothes ironing service in Pernambut. We developed a user-friendly service platform that allows customers to schedule pickups, track orders, and manage payments.</p>
+                    <div class="mt-4 flex flex-wrap gap-3 justify-center">
+                        <a href="https://www.ironzone.in/" target="_blank" class="bg-slate-800 text-white px-4 py-2 rounded-xl text-sm font-semibold hover:bg-primary hover:-translate-y-1 transition-all duration-300">Visit Website</a>
+                        <a href="https://play.google.com/store/apps/details?id=com.infyzen.ironzone" target="_blank" class="bg-slate-800 text-white px-4 py-2 rounded-xl text-sm font-semibold hover:bg-primary hover:-translate-y-1 transition-all duration-300">Play Store</a>
+                        <a href="https://apps.apple.com/app/id6752514444" target="_blank" class="bg-slate-800 text-white px-4 py-2 rounded-xl text-sm font-semibold hover:bg-primary hover:-translate-y-1 transition-all duration-300">App Store</a>
+                    </div>
+                </div>
+                
+                <!-- Trend2Media -->
+                <div class="project-card bg-white rounded-3xl shadow-lg p-6 md:p-8 flex flex-col">
+                    <div class="w-16 h-16 md:w-20 md:h-20 gradient-bg rounded-3xl mx-auto mb-4 md:mb-6 flex items-center justify-center text-white text-2xl md:text-3xl font-bold">N</div>
+                    <h3 class="text-xl md:text-2xl font-bold mb-3 gradient-text text-center">Trend2Media</h3>
+                    <p class="text-sm md:text-base text-slate-600 leading-relaxed mb-4 flex-grow">An innovative AI-powered platform that uses the News API to automatically generate engaging images and videos from the latest news headlines. This project is currently in development.</p>
+                    <div class="mt-4 flex flex-wrap gap-3 justify-center">
+                        <a href="https://trend2media.vercel.app/" target="_blank" class="bg-slate-800 text-white px-4 py-2 rounded-xl text-sm font-semibold hover:bg-primary hover:-translate-y-1 transition-all duration-300">Preview Project</a>
+                        <span class="bg-slate-100 text-slate-600 px-3 py-2 rounded-full text-xs font-medium">Under Development</span>
+                    </div>
                 </div>
             </div>
-
-            <div class="carousel-dots-container flex justify-center gap-2 mt-8" id="carousel-dots">
-                </div>
         </div>
     </section>
 
@@ -497,189 +501,6 @@
             }
         });
 
-        // Carousel functionality
-        const projectsData = [
-            {
-                title: 'Speedzy App',
-                initial: 'S',
-                description: 'A comprehensive food, grocery, and parcel delivery mobile application for the Pernambut community. We developed the platform from the ground up, focusing on a user-friendly interface and a dynamic backend for managing all logistics.',
-                links: [
-                    { text: 'Play Store', url: 'https://play.google.com/store/apps/details?id=com.mohammed_salick.Speedzy' },
-                    { text: 'App Store', url: 'https://apps.apple.com/in/app/speedzy/id6747835648' }
-                ]
-            },
-            {
-                title: 'OSSVVEL TILES',
-                initial: 'T',
-                description: 'A modern e-commerce and showcase website for a premium tiles and building materials showroom in Kanchipuram. We designed a user-friendly product catalog and integrated a system for online inquiries.',
-                links: [
-                    { text: 'Visit Website', url: 'https://ossvveltiles.com/' }
-                ]
-            },
-            {
-                title: 'AEurope.in',
-                initial: 'L',
-                description: 'An elegant e-commerce platform for handcrafted leather products including belts, shoes, and bags. This project demonstrates our ability to create niche e-commerce sites that are both beautiful and highly functional.',
-                links: [
-                    { text: 'Visit Website', url: 'https://aeurope.in/' }
-                ]
-            },
-            {
-                title: 'Wholesale Abaya & Hijabs',
-                initial: 'H',
-                description: 'A specialized e-commerce website for a wholesale modest fashion business. The platform was designed to cater to B2B clients with a streamlined bulk ordering system and a clean, professional design.',
-                links: [
-                    { text: 'Visit Website', url: 'https://wholesaleabayahijabs.in/' }
-                ]
-            },
-            {
-                title: 'IronZone',
-                initial: 'I',
-                description: 'A dual-platform project (website and mobile app) for a professional clothes ironing service in Pernambut. We developed a user-friendly service platform that allows customers to schedule pickups, track orders, and manage payments.',
-                links: [
-                    { text: 'Visit Website', url: 'https://www.ironzone.in/' },
-                    { text: 'Play Store', url: 'https://play.google.com/store/apps/details?id=com.ironjournallabs.ironjournal' }
-                ]
-            },
-            {
-                title: 'Trend2Media',
-                initial: 'N',
-                description: 'An innovative AI-powered platform that uses the News API to automatically generate engaging images and videos from the latest news headlines. This project is currently in development.',
-                links: [
-                    { text: 'Preview Project', url: 'https://trend2media.vercel.app/' }
-                ],
-                status: 'Under Development'
-            }
-        ];
-
-        let currentSlide = 0;
-        let slidesPerView = 1;
-        const totalSlides = projectsData.length;
-        const track = document.getElementById('carousel-track');
-        const prevBtn = document.getElementById('prev-btn');
-        const nextBtn = document.getElementById('next-btn');
-        const dotsContainer = document.getElementById('carousel-dots');
-
-        function updateSlidesPerView() {
-            const viewportWidth = window.innerWidth;
-            if (viewportWidth >= 1024) {
-                slidesPerView = 3;
-            } else if (viewportWidth >= 768) {
-                slidesPerView = 2;
-            } else {
-                slidesPerView = 1;
-            }
-
-            const trackWidth = (totalSlides / slidesPerView) * 100;
-            track.style.width = `${trackWidth}%`;
-            
-            // Adjust currentSlide to prevent empty space
-            if (currentSlide > totalSlides - slidesPerView) {
-                currentSlide = Math.max(0, totalSlides - slidesPerView);
-            }
-            updateCarousel();
-        }
-
-        function createProjectCards() {
-            track.innerHTML = '';
-            dotsContainer.innerHTML = '';
-            projectsData.forEach((project, index) => {
-                const slide = document.createElement('div');
-                slide.className = 'carousel-slide';
-                const slideWidth = 100 / (totalSlides / slidesPerView);
-                slide.style.width = `${slideWidth}%`;
-                
-                const linksHtml = project.links.map(link => `
-                    <a href="${link.url}" target="_blank" class="bg-slate-800 text-white px-4 py-2 rounded-xl text-sm font-semibold hover:bg-primary hover:-translate-y-1 transition-all duration-300 text-center">${link.text}</a>
-                `).join('');
-
-                slide.innerHTML = `
-                    <div class="bg-white rounded-3xl shadow-xl p-6 md:p-8 h-full flex flex-col justify-between">
-                        <div>
-                            <div class="w-16 h-16 md:w-20 md:h-20 gradient-bg rounded-3xl mx-auto mb-4 md:mb-6 flex items-center justify-center text-white text-2xl md:text-3xl font-bold">${project.initial}</div>
-                            <h3 class="text-xl md:text-2xl font-bold mb-3 gradient-text">${project.title}</h3>
-                            <p class="text-sm md:text-base text-slate-600 leading-relaxed mb-4">${project.description}</p>
-                            ${project.status ? `<div class="bg-slate-100 text-slate-600 px-3 py-1 rounded-full text-xs font-medium inline-block">${project.status}</div>` : ''}
-                        </div>
-                        <div class="mt-6 flex flex-wrap gap-4 justify-center">
-                            ${linksHtml}
-                        </div>
-                    </div>
-                `;
-                track.appendChild(slide);
-
-                const dot = document.createElement('div');
-                dot.className = `carousel-dot`;
-                dot.dataset.slide = index;
-                dot.addEventListener('click', () => {
-                    currentSlide = index;
-                    updateCarousel();
-                });
-                dotsContainer.appendChild(dot);
-            });
-        }
-
-        function updateCarousel() {
-            const offset = -currentSlide * (100 / slidesPerView);
-            track.style.transform = `translateX(${offset}%)`;
-            
-            const dots = dotsContainer.querySelectorAll('.carousel-dot');
-            dots.forEach((dot, index) => {
-                dot.classList.toggle('active', index === currentSlide);
-            });
-            
-            prevBtn.disabled = currentSlide === 0;
-            nextBtn.disabled = currentSlide >= totalSlides - slidesPerView;
-        }
-
-        prevBtn.addEventListener('click', () => {
-            if (currentSlide > 0) {
-                currentSlide--;
-                updateCarousel();
-            }
-        });
-
-        nextBtn.addEventListener('click', () => {
-            if (currentSlide < totalSlides - slidesPerView) {
-                currentSlide++;
-                updateCarousel();
-            }
-        });
-
-        // Touch/swipe support
-        let startX = 0;
-        let endX = 0;
-        const carouselContainer = document.querySelector('.carousel-container');
-
-        carouselContainer.addEventListener('touchstart', (e) => {
-            startX = e.touches[0].clientX;
-        });
-
-        carouselContainer.addEventListener('touchmove', (e) => {
-            endX = e.touches[0].clientX;
-        });
-
-        carouselContainer.addEventListener('touchend', () => {
-            const threshold = 50;
-            const diff = startX - endX;
-
-            if (Math.abs(diff) > threshold) {
-                if (diff > 0 && currentSlide < totalSlides - slidesPerView) {
-                    currentSlide++;
-                } else if (diff < 0 && currentSlide > 0) {
-                    currentSlide--;
-                }
-            }
-            updateCarousel();
-        });
-
-        // Initialize carousel and handle resize
-        createProjectCards();
-        updateSlidesPerView();
-        window.addEventListener('resize', () => {
-            updateSlidesPerView();
-        });
-
         // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
@@ -724,25 +545,11 @@
         }, observerOptions);
 
         // Observe service cards and other elements for scroll animations
-        document.querySelectorAll('.service-card, [class*="stat-card"]').forEach(card => {
+        document.querySelectorAll('.service-card, .project-card').forEach(card => {
             card.style.opacity = '0';
             card.style.transform = 'translateY(30px)';
             card.style.transition = 'all 0.6s ease';
             observer.observe(card);
-        });
-
-        // Performance optimization: Lazy load animations
-        const lazyAnimationObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('animate-fade-in-up');
-                    lazyAnimationObserver.unobserve(entry.target);
-                }
-            });
-        });
-
-        document.querySelectorAll('.service-card').forEach(card => {
-            lazyAnimationObserver.observe(card);
         });
     </script>
 </body>
